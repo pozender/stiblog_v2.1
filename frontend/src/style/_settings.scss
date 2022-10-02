@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "font-1";
+    src: url('../assets/Inter-VariableFont_slnt\,wght.ttf');
+}
+
+$font-1: "font-1", sans-serif;
+
+$bg-color: #B1D4E0 !default;
+$blue_soft: rgba(9, 15, 61, 0.58) !default;
+$blue_black: #050A30 !default;
+$green: #0A4905 !default;
+$black: #02051D !default;
+
+// sorte de "fonction" pour centrer ce que l'on a besoin
+@mixin verticalCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    font-family: $font-1;
+    margin: 0.5vh;
+    padding: 0px;
+    background-color: $bg-color;
+}
