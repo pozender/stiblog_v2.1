@@ -1,40 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import Card from './components/Card';
-import Header from './components/Header';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import Card from "./components/Card";
+import Header from "./components/Header";
 
 const Home = () => {
-    let [articles, setArticles] = useState([])
+  let [articles, setArticles] = useState([]);
 
-    useEffect(() => {
-    
-        axios.get('/back').then((res)=>{
-            setArticles(res.data)
-        })
-      
-    }, [])
+  useEffect(() => {
+    getArticles();
+  }, []);
 
+  let getArticles = async () => {
+    let response = await fetch("/back");
+    let data = await response.json();
+    setArticles(data);
+  };
 
-    
-    return (
-        <div className='home'>
-            <Header />
-            <div className='content'>
-                <div className='add_button'>
-                    <Link to="/add" >
-                        <button className='add'>Créez un article</button>
-               </Link>
-                </div>
-                
-                {articles.map(
-                    (article)=>(
-                    <Card key={article.id} article={article}/>
-                ))}
-            </div>
-            
+  return (
+    <div className="home">
+      <Header />
+      <div className="content">
+        <div className="add_button">
+          <Link to="/add">
+            <button className="add">Créez un article</button>
+          </Link>
         </div>
-    );
+
+        {articles.map((article) => (
+          <Card key={article.id} article={article} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Home;

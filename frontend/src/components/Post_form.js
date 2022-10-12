@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Header from "./Header";
-import axios from "axios";
 
 const Post_form = () => {
   const [datas, setDatas] = useState({
@@ -9,83 +8,52 @@ const Post_form = () => {
     article: "",
   });
 
-  const post = () => {
-    console.log(datas);
-    axios
-      .post("/back", {
-        title: datas.title,
-        description: datas.description,
-        article: datas.article,
-      })
-      .then((result) => {
-        console.log(datas);
-        alert("C'est bon c'est en DB");
-        setDatas({
-          title: "",
-          description: "",
-          article: "",
-        });
-      });
-  };
-
-  const handlTitle = (e) => {
-    setDatas({
-      ...datas,
-      title: e.target.value,
+  let postDatas = async () => {
+    await fetch("/back/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(datas),
     });
-    console.log(datas);
   };
 
-  const handlDescription = (e) => {
-    setDatas({
-      ...datas,
-      description: e.target.value,
-    });
-    console.log(datas);
+  let handlePost = () => {
+    postDatas();
   };
-
-  const handlArticle = (e) => {
-    setDatas({
-      ...datas,
-      article: e.target.value,
-    });
-    console.log(datas);
-  };
-
   return (
     <div className="form">
       <Header />
       <div className="content">
-        <form onSubmit={post()}>
-          <label for="title">Titre</label>
+        <form onSubmit={handlePost}>
+          <label htmlFor="title">Titre</label>
           <input
             type="text"
             name="title"
             id="title"
-            value={datas.title}
-            onChange={handlTitle}
-            required
+            onChange={(e) => setDatas({ ...datas, title: e.target.value })}
           />
 
-          <label for="description">Description</label>
+          <label htmlFor="description">Description</label>
           <input
             type="text"
             name="description"
             id="description"
-            value={datas.description}
-            onChange={handlDescription}
-            required
+            onChange={(e) =>
+              setDatas({ ...datas, description: e.target.value })
+            }
           />
 
-          <label for="article">Article</label>
+          <label htmlFor="article">Article</label>
           <textarea
             name="article"
-            value={datas.article}
-            onChange={handlArticle}
-            required
-          />
+            id="article"
+            cols="30"
+            rows="10"
+            onChange={(e) => setDatas({ ...datas, article: e.target.value })}
+          ></textarea>
 
-          <input type="submit" value="Post" />
+          <input type="submit" value="Submit" />
         </form>
       </div>
     </div>
