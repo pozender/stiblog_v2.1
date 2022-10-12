@@ -1,0 +1,48 @@
+.articl_page{
+    display: flex;
+     align-items: center;
+    flex-direction: column;
+   
+    margin: 0px;
+    padding: 0px;
+    .content{
+        align-items: flex-start;
+        .title{
+            width: 88vw;
+            flex-wrap: wrap;
+            margin-left: 0%;
+            h1{
+                color: $blue_black;
+                    font-size: 2.7rem;
+                    margin-bottom: 15px;
+            }
+        }
+        .date{
+            width: 88vw;
+            flex-wrap: wrap;
+            h3{
+                color: $blue_soft;
+                    font-size: 1.1rem;
+                    font-weight: normal;
+            }
+        }
+        .article{
+            display: flex;
+            width: 95%;
+            // 
+            margin-top: 4rem;
+            flex-wrap: wrap;
+            p{
+            
+            
+                color: $black;
+                font-size: 1.5rem;
+                
+            
+                
+                
+            }
+        }    
+
+    }
+}

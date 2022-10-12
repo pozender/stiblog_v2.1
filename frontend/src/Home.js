@@ -27,7 +27,9 @@ const Home = () => {
         </div>
 
         {articles.map((article) => (
-          <Card key={article.id} article={article} />
+          <Link to={"/article/" + article.id} className="articles_links">
+            <Card key={article.id} article={article} />
+          </Link>
         ))}
       </div>
     </div>

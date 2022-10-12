@@ -6,7 +6,8 @@
     border: 5px solid $blue_black;
     border-radius: 24px;
     box-shadow: -10px 15px 25px $black;
-    margin-bottom: 1.2rem;
+    margin-bottom: 2.5rem;
+    margin: auto;
     
     h2{
         color: $blue_black;
@@ -21,7 +22,34 @@
     }
     p{
         color: $black;
-        margin-top: 40px;
+        margin-top: 45px;
         flex-wrap: wrap;
+    }
+}
+@media only screen and (max-width: 600px) {
+
+    .card{
+        height: 100%;
+        padding: 5%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        h2{
+            margin-top: 2.5rem;
+            margin-bottom: 1.8rem;
+            font-size: 2rem;
+            flex-wrap: wrap;
+        }
+        h4 {
+            
+            font-size: 1.1rem;
+            
+            margin-bottom: 3.5rem;
+        }
+        p{
+            
+            margin-top: 1.3rem;
+            margin-bottom: 2.5rem;
+                
+        }
     }
 }

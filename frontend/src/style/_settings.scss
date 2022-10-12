@@ -24,3 +24,13 @@ $black: #02051D !default;
     padding: 0px;
     background-color: $bg-color;
 }
+.content {
+    display: flex;
+
+    // border: 5px solid red;
+
+    align-items: center;
+    flex-direction: column;
+    width: 88vw;
+    height: 100%;
+}

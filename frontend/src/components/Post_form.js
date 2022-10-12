@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Header from "./Header";
+// import { useNavigate } from "react-router-dom";
 
 const Post_form = () => {
   const [datas, setDatas] = useState({
@@ -9,7 +10,7 @@ const Post_form = () => {
   });
 
   let postDatas = async () => {
-    await fetch("/back/", {
+    await fetch("/back", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,6 +33,7 @@ const Post_form = () => {
             name="title"
             id="title"
             onChange={(e) => setDatas({ ...datas, title: e.target.value })}
+            // required="require"
           />
 
           <label htmlFor="description">Description</label>
@@ -42,6 +44,7 @@ const Post_form = () => {
             onChange={(e) =>
               setDatas({ ...datas, description: e.target.value })
             }
+            // required="require"
           />
 
           <label htmlFor="article">Article</label>
@@ -51,6 +54,7 @@ const Post_form = () => {
             cols="30"
             rows="10"
             onChange={(e) => setDatas({ ...datas, article: e.target.value })}
+            // required="require"
           ></textarea>
 
           <input type="submit" value="Submit" />
