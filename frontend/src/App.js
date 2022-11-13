@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Article_page from "./components/Article_page";
+
 import Post_form from "./components/Post_form";
 import Home from "./Home";
 

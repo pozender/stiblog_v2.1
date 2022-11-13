@@ -11,7 +11,7 @@ const Article_page = () => {
   let { id } = useParams();
 
   let getArticle = async () => {
-    let response = await fetch(`/back/article/${id}`);
+    let response = await fetch(`/back/article/${id}/`);
 
     let data = await response.json();
 

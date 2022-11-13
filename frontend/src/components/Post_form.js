@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header from "./Header";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Post_form = () => {
   const [datas, setDatas] = useState({
@@ -9,8 +9,10 @@ const Post_form = () => {
     article: "",
   });
 
-  let postDatas = async () => {
-    await fetch("/back", {
+  const navigate = useNavigate();
+
+  const postDatas = async () => {
+    fetch("/back/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -19,14 +21,15 @@ const Post_form = () => {
     });
   };
 
-  let handlePost = () => {
+  const handlSubmit = () => {
     postDatas();
+    navigate("/");
   };
   return (
     <div className="form">
       <Header />
       <div className="content">
-        <form onSubmit={handlePost}>
+        <form onSubmit={handlSubmit}>
           <label htmlFor="title">Titre</label>
           <input
             type="text"
